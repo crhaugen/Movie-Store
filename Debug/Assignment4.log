@@ -1,0 +1,6 @@
+﻿  Assignment4.cpp
+  Drama.cpp
+  Store.cpp
+  Generating Code...
+c:\users\chyanne\source\repos\assignment4\assignment4\drama.cpp(47): warning C4715: 'Drama::operator=': not all control paths return a value
+  Assignment4.vcxproj -> C:\Users\Chyanne\source\repos\Assignment4\Debug\Assignment4.exe
