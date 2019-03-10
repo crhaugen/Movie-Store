@@ -1,26 +1,20 @@
-#pragma once
-
 // ------------------------------------- bintree.cpp -------------------------- 
 // Chyanne Haugen (crhaugen@uw.edu) CSS 343 A
 // Creation Date: 1/17/19 
-// Date of Last Modification: 2/1/19
+// Date of Last Modification: 3/9/19
 // ----------------------------------------------------------------------------
 // Purpose - bintree class allows a Binary Search tree to be represented 
 //              in memory.
 //			 Feature:
 //				- Memory allocation and deallocation is handed by the class
-//				- The following operation: '=', '==', '!=' 
-//				can be preformed on any binary search trees
 //
 // ----------------------------------------------------------------------------
 // Notes:
-//		-All function in this class are for a Binary Search Tree. 
-//          Except getHeight, getHeightHelper, and findNode which will 
-//          work for binary trees.
+//		-This Binary Search tree does not have all the method a normal BST 
+//		only base functions are being use.
 //      
 // Assumptions:
-//		-Node and nodedata has memory that has been allocated and need 
-//          to be freed 
+//		-This binary search tree will only be used for data of type Movie
 // ---------------------------------------------------------------------------- 
 
 #pragma once

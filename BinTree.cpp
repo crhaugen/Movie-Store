@@ -1,24 +1,20 @@
 // ------------------------------------- bintree.cpp -------------------------- 
 // Chyanne Haugen (crhaugen@uw.edu) CSS 343 A
 // Creation Date: 1/17/19 
-// Date of Last Modification: 2/2/19
+// Date of Last Modification: 3/9/19
 // ----------------------------------------------------------------------------
 // Purpose - bintree class allows a Binary Search tree to be represented 
 //              in memory.
 //			 Feature:
 //				- Memory allocation and deallocation is handed by the class
-//				- The following operation: '=', '==', '!=' 
-//				can be preformed on any binary search trees
 //
 // ----------------------------------------------------------------------------
 // Notes:
-//		-All function in this class are for a Binary Search Tree. 
-//          Except getHeight, getHeightHelper, and findNode which will 
-//          work for binary trees.
+//		-This Binary Search tree does not have all the method a normal BST 
+//		only base functions are being use.
 //      
 // Assumptions:
-//		-Node and nodedata has memory that has been allocated and need 
-//          to be freed 
+//		-This binary search tree will only be used for data of type Movie
 // ---------------------------------------------------------------------------- 
 
 #include "stdafx.h"
@@ -50,7 +46,7 @@ void BinTree::makeEmpty()
 // Private function to clean a tree and free all memory.
 // Preconditions:  - root points to null or node(s).
 // Postconditions:  - root points to null. 
-//  -Assumption: Node and Nodedata have been allocated and need to be freed
+//  -Assumption: Node and data have been allocated and need to be freed
 void BinTree::makeEmptyHelper(Node *&root)
 {
 	if (root != nullptr)
@@ -71,7 +67,7 @@ void BinTree::makeEmptyHelper(Node *&root)
 // -Function calls insertHelper function to preform the insertion.
 // Preconditions: root points to null or node(s).
 // Postconditions:  -Either true or false will be return. Either node has 
-//  been inserted and memory has been allocated or if nodedata already 
+//  been inserted and memory has been allocated or if data already 
 //  in tree, node will not be inserted and no memory will be allocated.
 bool BinTree::insert(Movie* item)
 {
@@ -132,8 +128,8 @@ bool BinTree::retrieve(const Movie &searchItem, Movie *&foundItem) const
 {
 	Node *tempPtr = this->root; //set temp pointer to root for traversal
 
-								//going through tree look for item if tempPtr becomes null
-								//item is not in tree
+	//going through tree look for item if tempPtr becomes null
+	//item is not in tree
 	while (tempPtr != nullptr)
 	{
 		//Found it! set foundItem to item and return true
