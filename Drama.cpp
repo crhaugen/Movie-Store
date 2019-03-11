@@ -45,7 +45,8 @@ Drama::Drama()
 bool Drama::setData(istream& infile) 
 {
 	infile.get();
-	infile >> stock;
+	infile >> currentStock;
+	maxStock = currentStock;
 
 	infile.get();
 	getline(infile, director, ',');
