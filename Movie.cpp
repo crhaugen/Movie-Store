@@ -31,7 +31,7 @@ Movie::Movie()
 	title = " ";
 	director = " ";
 	year = 0;
-	stock = 0;
+	currentStock = 0;
 }
 
 string Movie::getTitle() const
@@ -49,9 +49,31 @@ int Movie::getYear() const
 	return year;
 }
 
-int Movie::getStock() const
+int Movie::getCurrentStock() const
 {
-	return stock;
+	return currentStock;
+}
+
+void Movie::borrow()
+{
+	if (currentStock <= 0)
+	{
+		cout << "None to borrow" << endl;
+		return;
+	}
+
+	currentStock--;
+}
+
+void Movie::giveBack()
+{
+	if (currentStock == maxStock)
+	{
+		cout << "Movie stock is at max" << endl;
+		return;
+	}
+
+	currentStock++;
 }
 
  Movie::~Movie()

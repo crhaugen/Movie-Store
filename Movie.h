@@ -34,7 +34,8 @@ protected:
 	string title;
 	string director;
 	int year;
-	int stock;
+	int currentStock;
+	int maxStock;
 
 public:
 	Movie();
@@ -42,7 +43,10 @@ public:
 	string getTitle() const;
 	string getDirector() const;
 	int getYear() const;
-	int getStock() const;
+	int getCurrentStock() const;
+
+	void borrow();
+	void giveBack();
 
 	virtual bool setData(istream&) = 0;
 	virtual void display() const = 0 ;
