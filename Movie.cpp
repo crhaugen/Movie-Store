@@ -26,6 +26,9 @@
 #include "stdafx.h"
 #include "Movie.h"
 
+//------------------------ Default constructor -------------------------------
+// Preconditions:   None
+// Postconditions: - Moive object created
 Movie::Movie()
 {
 	title = " ";
@@ -34,28 +37,44 @@ Movie::Movie()
 	currentStock = 0;
 }
 
+//------------------------ getTitle ------------------------------------
+// Preconditions:   None
+// Postconditions: - title is returned
 string Movie::getTitle() const
 {
 	return title;
 }
 
+//------------------------ getDirector ------------------------------------
+// Preconditions:   None
+// Postconditions: - director is returned
 string Movie::getDirector() const
 {
 	return director;
 }
 
+//------------------------ getDirector ------------------------------------
+// Preconditions:   None
+// Postconditions: - Year is returned
 int Movie::getYear() const
 {
 	return year;
 }
 
+//------------------------ getCurrentStock ------------------------------------
+// Preconditions:   None
+// Postconditions: - current stock is returned
 int Movie::getCurrentStock() const
 {
 	return currentStock;
 }
 
+//------------------------ borrow --------------------------------------
+// Preconditions:   object of movie type
+// Postconditions: - current stock decreased by 1 
 void Movie::borrow()
 {
+	//can't let user borrow if no stock available
 	if (currentStock <= 0)
 	{
 		cout << "None to borrow" << endl;
@@ -65,8 +84,12 @@ void Movie::borrow()
 	currentStock--;
 }
 
+//------------------------ giveBack --------------------------------------
+// Preconditions:   object of movie type
+// Postconditions: - current stock increased by 1 
 void Movie::giveBack()
 {
+	//if at max amount of stock user can't give anything back
 	if (currentStock == maxStock)
 	{
 		cout << "Movie stock is at max" << endl;
@@ -76,6 +99,9 @@ void Movie::giveBack()
 	currentStock++;
 }
 
+//------------------------------Destructor-----------------------------------
+// Preconditions: movie object
+// Postconditions:  - movie object is gone
  Movie::~Movie()
  {
 

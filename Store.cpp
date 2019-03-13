@@ -16,7 +16,7 @@
 //		-
 //      
 // Assumptions:
-//		-
+//		- Not allowing any dupliate movie type object to be created
 //		-
 //
 // ----------------------------------------------------------------------------
@@ -40,21 +40,32 @@ void Store::buildMovies(istream& infile)
 	{
 		infile >> movieType;
 
+		if (infile.eof())
+		{
+			break;
+		}
+
 		switch (movieType)
 		{
 			case 'D':
 				movie = new Drama;
 				movie->setData(infile);
 
+				//if drama object is already in the tree delete
 				if (!dramaTree.insert(movie))
 				{
 					delete movie;
 				}
 
 				break;
-	
+			case 'F':
+				break;
+			case 'C':
+				break;
+			//any other input types will be invalid and discarded
 			default:
-				cout << "error" << endl;
+				cout << "Error invalid input (code) type" << endl;
+				//remove line!!!
 				break;
 		}
 
