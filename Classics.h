@@ -44,6 +44,10 @@ private:
 public:
 	Classics();
 
+	int getMonth() const;
+	string getFirstName() const;
+	string getLastName() const;
+
 	virtual bool setData(istream &);
 	virtual void display() const;
 

@@ -44,6 +44,21 @@ Classics::Classics()
 	lastName = " ";
 }
 
+int Classics::getMonth() const
+{
+	return month;
+}
+
+string Classics::getFirstName() const
+{
+	return firstName;
+}
+
+string Classics::getLastName() const
+{
+	return lastName;
+}
+
 //------------------------ setData() ------------------------------------------
 // Preconditions: stream from a file
 // Postconditions: - classics object has information from file
@@ -102,6 +117,9 @@ bool Classics::operator=(const Movie &otherData)
 	}
 
 	//setting information
+	this->firstName = classicsPtr->getFirstName();
+	this->lastName = classicsPtr->getLastName();
+	this->month = classicsPtr->getMonth();
 	this->director = classicsPtr->getDirector();
 	this->title = classicsPtr->getTitle();
 	this->year = classicsPtr->getYear();
@@ -125,8 +143,12 @@ bool Classics::operator==(const Movie &otherData) const
 		return false;
 	}
 
-	return (getDirector() == classicsPtr->getDirector())
-		&& (getTitle() == classicsPtr->getTitle());
+	return (this->year == classicsPtr->getYear())
+		&& (this->month == classicsPtr->getMonth()) 
+		&& (this->firstName == classicsPtr->getFirstName())
+		&& (this->lastName == classicsPtr->getLastName())
+		&& (this->director == classicsPtr->getDirector())
+		&& (this->title == classicsPtr->getTitle());
 }
 
 
@@ -147,15 +169,26 @@ bool Classics::operator>(const Movie &otherData) const
 		cout << "Error" << endl;
 		return false;
 	}
-
-	//if directors are the same compare by title
-	if (getDirector() != classicsPtr->getDirector())
+	
+	//sorting classics by release date (year then month) then major actor
+	if (this->year != classicsPtr->getYear())
 	{
-		return getDirector() > classicsPtr->getDirector();
+		return this->year > classicsPtr->getYear();
+	}
+	else if (this->month != classicsPtr->getMonth())
+	{
+		return this->month > classicsPtr->getMonth();
 	}
 	else
 	{
-		return getTitle() > classicsPtr->getTitle();
+		if (this->firstName != classicsPtr->getFirstName())
+		{
+			return this->firstName > classicsPtr->getFirstName();
+		}
+		else
+		{
+			return this->lastName > classicsPtr->getLastName();
+		}
 	}
 }
 
