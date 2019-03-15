@@ -118,8 +118,9 @@ bool Drama::operator==(const Movie &otherData) const
 		return false;
 	}
 
-	return (getDirector() == dramaPtr->getDirector())
-		&& (getTitle() == dramaPtr->getTitle());
+	return (this->year == dramaPtr->getYear())
+		&& (this->director == dramaPtr->getDirector())
+		&& (this->title == dramaPtr->getTitle());
 }
 
 
@@ -141,7 +142,7 @@ bool Drama::operator>(const Movie &otherData) const
 		return false;
 	}
 
-	//if directors are the same compare by title
+	//sorting by director, then title
 	if (getDirector() != dramaPtr->getDirector())
 	{
 		return getDirector() > dramaPtr->getDirector();
