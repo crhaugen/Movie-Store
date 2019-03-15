@@ -118,8 +118,9 @@ bool Comedy::operator==(const Movie &otherData) const
 		return false;
 	}
 
-	return (getDirector() == comedyPtr->getDirector())
-		&& (getTitle() == comedyPtr->getTitle());
+	return (this->year == comedyPtr->getYear())
+		&& (this->director == comedyPtr->getDirector())
+		&& (this->title == comedyPtr->getTitle());
 }
 
 
@@ -141,14 +142,14 @@ bool Comedy::operator>(const Movie &otherData) const
 		return false;
 	}
 
-	//if directors are the same compare by title
-	if (getDirector() != comedyPtr->getDirector())
+	//sorting by title, then year it was released
+	if (this->title != comedyPtr->getTitle())
 	{
-		return getDirector() > comedyPtr->getDirector();
+		return this->title > comedyPtr->getTitle();
 	}
-	else
+	else 
 	{
-		return getTitle() > comedyPtr->getTitle();
+		return this->year > comedyPtr->getYear();
 	}
 }
 
