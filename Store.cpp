@@ -56,10 +56,6 @@ void Store::buildMovies(istream& infile)
 				{
 					delete movie;
 				}
-				else
-				{
-					dramaTree.insert(movie);
-				}
 
 				break;
 			case 'F':
@@ -71,10 +67,6 @@ void Store::buildMovies(istream& infile)
 				{
 					delete movie;
 				}
-				else
-				{
-					comedyTree.insert(movie);
-				}
 
 				break;
 			case 'C':
@@ -83,7 +75,7 @@ void Store::buildMovies(istream& infile)
 			
 
 				//if object is already in the tree delete
-				if (!classicsTree.insert(movie))
+				if (classicsTree.find(movie))
 				{
 					delete movie;
 				}
@@ -105,7 +97,9 @@ void Store::buildMovies(istream& infile)
 			//any other input types will be invalid and discarded
 			default:
 				cout << "Error invalid input (code) type" << endl;
-				//remove line!!! <-DO THIS
+				//removing line
+				string junkData;
+				getline(infile, junkData);
 				break;
 		}
 
