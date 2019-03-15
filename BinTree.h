@@ -11,7 +11,7 @@
 // ----------------------------------------------------------------------------
 // Notes:
 //		-This Binary Search tree does not have all the method a normal BST 
-//		only base functions are being use.
+//		only basic functions are being use.
 //      
 // Assumptions:
 //		-This binary search tree will only be used for data of type Movie
@@ -106,6 +106,14 @@ public:
 	//  item will be in foundItem for user's use. 
 	bool retrieve(const Movie &searchItem, Movie *&foundItem) const;
 
+	//--------------------------------retrieveByTitle-----------------------------
+	// Preconditions: root points to null or node(s), searchItem contains data
+	//  to be search for.
+	// Postconditions:  -if a movie of same title in already in tree updates
+	//	stock of that movie of both movies to be total, but they will be 
+	//	kept separate.
+	int retrieveByTitle(string title, int stock) const;
+
 
 	//------------------------------operator<<-----------------------------------
 	//Calls inorderHelper to print the inorder travsal of the tree
@@ -114,5 +122,8 @@ public:
 	// -Assumption: -This function does "endl" after printing, so user doesn't
 	//  have to. 
 	friend ostream & operator<<(ostream &, const BinTree &);
+
+	
+	
 
 };

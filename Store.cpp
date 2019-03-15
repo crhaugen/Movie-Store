@@ -28,7 +28,7 @@
 
 Store::Store()
 {
-
+	
 }
 
 void Store::buildMovies(istream& infile)
@@ -51,21 +51,61 @@ void Store::buildMovies(istream& infile)
 				movie = new Drama;
 				movie->setData(infile);
 
-				//if drama object is already in the tree delete
+				//if object is already in the tree delete
 				if (!dramaTree.insert(movie))
 				{
 					delete movie;
 				}
+				else
+				{
+					dramaTree.insert(movie);
+				}
 
 				break;
 			case 'F':
+				movie = new Comedy;
+				movie->setData(infile);
+
+				//if object is already in the tree delete
+				if (!comedyTree.insert(movie))
+				{
+					delete movie;
+				}
+				else
+				{
+					comedyTree.insert(movie);
+				}
+
 				break;
 			case 'C':
+				movie = new Classics;
+				movie->setData(infile);
+			
+
+				//if object is already in the tree delete
+				if (!classicsTree.insert(movie))
+				{
+					delete movie;
+				}
+				else
+				{
+					int oldStock = classicsTree.retrieveByTitle(movie->getTitle(), 
+						movie->getMaxStock());
+
+					//adding old stock to new stock if there is any
+					if (oldStock != 0)
+					{
+						movie->increaseStockLevel(oldStock);
+					}
+
+					classicsTree.insert(movie);
+				}
+
 				break;
 			//any other input types will be invalid and discarded
 			default:
 				cout << "Error invalid input (code) type" << endl;
-				//remove line!!!
+				//remove line!!! <-DO THIS
 				break;
 		}
 

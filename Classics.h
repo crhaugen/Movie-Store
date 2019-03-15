@@ -1,9 +1,9 @@
-// ------------------------------------- Comedy.h -------------------------- 
+// ------------------------------------- Classics.h -------------------------- 
 // Chyanne Haugen (crhaugen@uw.edu) CSS 343 A
-// Creation Date: 3/5/19 
+// Creation Date: 3/10/19 
 // Date of Last Modification: 
 // ----------------------------------------------------------------------------
-// Purpose - Comedy class creates movies of type Comedy, inheritance from movie 
+// Purpose - Classics class creates movies of type Classics, inheritance from movie 
 //				class
 //       
 //			 Feature:
@@ -12,8 +12,8 @@
 //
 // ----------------------------------------------------------------------------
 // Notes:
-//	-To use <,>,== on Comedy type when I was passing in a movies type I used
-//		'dynamic_cast' to downcast movie to Comedy so correct operation could
+//	-To use <,>,== on Classics type when I was passing in a movies type I used
+//		'dynamic_cast' to downcast movie to Classics so correct operation could
 //		 be proformed. For some of the movie types I didn't really need to do 
 //		it but I thought it would make more sense just to do it in all 
 //		childern class and not just the one that really needed it.
@@ -34,10 +34,15 @@
 #include "Movie.h"
 
 
-class Comedy : public Movie
+class Classics : public Movie
 {
+private:
+	int month;
+	string firstName;
+	string lastName;
+
 public:
-	Comedy();
+	Classics();
 
 	virtual bool setData(istream &);
 	virtual void display() const;
@@ -46,8 +51,6 @@ public:
 	virtual bool operator==(const Movie &) const;
 	virtual bool operator>(const Movie &) const;
 
-	virtual ~Comedy();
+	virtual ~Classics();
 
 };
-
-

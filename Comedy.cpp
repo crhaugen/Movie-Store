@@ -122,26 +122,6 @@ bool Comedy::operator==(const Movie &otherData) const
 		&& (getTitle() == comedyPtr->getTitle());
 }
 
-//------------------------ operator< ------------------------------------------
-// Preconditions: comedy object and movie object
-// Postconditions: - true or false depending on if this object is smaller 
-// Assumptions: to compare a moive object with a comedy object I'm downcasting 
-//	the movie object to comedy
-//	-from my understanding this downcast should always work in this case.
-bool Comedy::operator<(const Movie &otherData) const
-{
-	//downcasting movie to comedy 
-	const Comedy *comedyPtr = dynamic_cast<const Comedy*>(&otherData);
-
-	//checking if the downcast was good (should always be good)
-	if (comedyPtr == nullptr)
-	{
-		cout << "Error" << endl;
-		return false;
-	}
-
-	return (*this > *comedyPtr) ? false : true;
-}
 
 //------------------------ operator> ------------------------------------------
 // Preconditions: comedy object and movie object

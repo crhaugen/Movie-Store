@@ -29,6 +29,8 @@
 #include "stdafx.h"
 
 #include "Drama.h"
+#include "Comedy.h"
+#include "Classics.h"
 #include "BinTree.h"
 #include <iostream>
 
@@ -38,13 +40,13 @@ class Store
 {
 private:
 	BinTree dramaTree;
+	BinTree comedyTree;
+	BinTree classicsTree;
 
 public:
 
 	Store();
 
 	void buildMovies(istream& infile);
-
-
 
 };

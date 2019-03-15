@@ -69,6 +69,23 @@ int Movie::getCurrentStock() const
 	return currentStock;
 }
 
+//------------------------ getMaxStock ------------------------------------
+// Preconditions:   None
+// Postconditions: - max stock is returned
+int Movie::getMaxStock() const
+{
+	return maxStock;
+}
+
+//------------------------ increaseStockLevel ------------------------------------
+// Preconditions:   None
+// Postconditions: - current stock and max stock is updated
+void Movie::increaseStockLevel(int newStock)
+{
+	maxStock += newStock;
+	currentStock += newStock;
+}
+
 //------------------------ borrow --------------------------------------
 // Preconditions:   object of movie type
 // Postconditions: - current stock decreased by 1 

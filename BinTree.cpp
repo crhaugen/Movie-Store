@@ -138,17 +138,56 @@ bool BinTree::retrieve(const Movie &searchItem, Movie *&foundItem) const
 			foundItem = tempPtr->data;
 			return true;
 		}
-		else if (*tempPtr->data < searchItem)
+		else if (*tempPtr->data > searchItem)
 		{
-			tempPtr = tempPtr->right;
+			tempPtr = tempPtr->left;
 		}
 		else
 		{
-			tempPtr = tempPtr->left;
+			tempPtr = tempPtr->right;
 		}
 	}
 
 	return false;
+}
+
+//--------------------------------retrieveByTitle-----------------------------
+// Preconditions: root points to null or node(s), searchItem contains data
+//  to be search for.
+// Postconditions:  -Either true or false will be return. If item is found
+//  with same title true will be returned
+int BinTree::retrieveByTitle(string title, int stock) const
+{
+	Node *tempPtr = this->root; //set temp pointer to root for traversal
+
+	//going through tree look for item if tempPtr becomes null
+	//item is not in tree
+	while (tempPtr != nullptr)
+	{
+		//Found it! there is more than one movie with this title
+		if (tempPtr->data->getTitle() == title)
+		{
+			int oldStock = tempPtr->data->getMaxStock();
+
+			//adding stock from new movie to old movie
+			tempPtr->data->increaseStockLevel(stock);
+
+			//return oldStock to updated new 
+			return oldStock;
+
+		}
+		else if (tempPtr->data->getTitle() > title)
+		{
+			tempPtr = tempPtr->left;
+		}
+		else
+		{
+			tempPtr = tempPtr->right;
+		}
+	}
+
+	//no other stock of this title
+	return 0;
 }
 
 

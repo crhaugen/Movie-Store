@@ -1,9 +1,9 @@
-// ------------------------------------- Drama.cpp -------------------------- 
+// ------------------------------------- classics.cpp -------------------------- 
 // Chyanne Haugen (crhaugen@uw.edu) CSS 343 A
 // Creation Date: 3/5/19 
 // Date of Last Modification: 
 // ----------------------------------------------------------------------------
-// Purpose - Drama class creates movies of type drama, inheritance from movie 
+// Purpose - classics class creates movies of type classics, inheritance from movie 
 //				class
 //       
 //			 Feature:
@@ -12,8 +12,8 @@
 //
 // ----------------------------------------------------------------------------
 // Notes:
-//	-To use <,>,== on drama type when I was passing in a movies type I used
-//		'dynamic_cast' to downcast movie to drama so correct operation could
+//	-To use <,>,== on classics type when I was passing in a movies type I used
+//		'dynamic_cast' to downcast movie to classics so correct operation could
 //		 be proformed. For some of the movie types I didn't really need to do 
 //		it but I thought it would make more sense just to do it in all 
 //		childern class and not just the one that really needed it.
@@ -31,22 +31,24 @@
 
 #include "stdafx.h"
 
-#include "Drama.h"
+#include "classics.h"
 
 
 //------------------------ Default constructor -------------------------------
 // Preconditions:   None
-// Postconditions: - drama object created
-Drama::Drama()
+// Postconditions: - classics object created
+Classics::Classics()
 {
-
+	month = 0;
+	firstName = " ";
+	lastName = " ";
 }
 
 //------------------------ setData() ------------------------------------------
 // Preconditions: stream from a file
-// Postconditions: - drama object has information from file
+// Postconditions: - classics object has information from file
 // Assumptions: data will be correctly formatted.
-bool Drama::setData(istream& infile) 
+bool Classics::setData(istream& infile)
 {
 	//getting stock which will be max stock for that type
 	infile.get();
@@ -63,99 +65,104 @@ bool Drama::setData(istream& infile)
 
 	//getting year 
 	infile.get();
+	infile >> firstName;
+	infile >> lastName;
+
+	infile >> month;
 	infile >> year;
 
 	return true;
 }
 
+
 //------------------------ display() ------------------------------------------
-// Preconditions: drama object
-// Postconditions: - prints out information from drama object
-void Drama::display() const
+// Preconditions: classics object
+// Postconditions: - prints out information from classics object
+void Classics::display() const
 {
 	cout << getTitle() << " " << getDirector() << " " << getYear() << endl;
 }
 
 //------------------------ operator= ------------------------------------------
-// Preconditions: drama object and movie object
-// Postconditions: - drama object has been set with information in otherData
-// Assumptions: to compare a moive object with a drama object I'm downcasting 
-//	the movie object to drama
+// Preconditions: classics object and movie object
+// Postconditions: - classics object has been set with information in otherData
+// Assumptions: to compare a moive object with a classics object I'm downcasting 
+//	the movie object to classics
 //	-from my understanding this downcast should always work in this case.
-bool Drama::operator=(const Movie &otherData)
+bool Classics::operator=(const Movie &otherData)
 {
-	 //downcasting movie to drama 
-	 const Drama *dramaPtr = dynamic_cast<const Drama*>(&otherData);
-
-	 //checking if the downcast was good (should always be good)
-	 if (dramaPtr == nullptr)
-	 {
-		 cout << "Error" << endl;
-		 return false;
-	 }
-
-	//setting information
-	this->director = dramaPtr->getDirector();
-	this->title = dramaPtr->getTitle();
-	this->year = dramaPtr->getYear();
-}
-
-//------------------------ operator== ------------------------------------------
-// Preconditions: drama object and movie object
-// Postconditions: - true or false depending on if objects are equal
-// Assumptions: to compare a moive object with a drama object I'm downcasting 
-//	the movie object to drama
-//	-from my understanding this downcast should always work in this case.
-bool Drama::operator==(const Movie &otherData) const
-{
-	//downcasting movie to drama 
-	const Drama *dramaPtr = dynamic_cast<const Drama*>(&otherData);
+	//downcasting movie to classics 
+	const Classics *classicsPtr = dynamic_cast<const Classics*>(&otherData);
 
 	//checking if the downcast was good (should always be good)
-	if (dramaPtr == nullptr)
+	if (classicsPtr == nullptr)
 	{
 		cout << "Error" << endl;
 		return false;
 	}
 
-	return (getDirector() == dramaPtr->getDirector())
-		&& (getTitle() == dramaPtr->getTitle());
+	//setting information
+	this->director = classicsPtr->getDirector();
+	this->title = classicsPtr->getTitle();
+	this->year = classicsPtr->getYear();
+}
+
+//------------------------ operator== ------------------------------------------
+// Preconditions: classics object and movie object
+// Postconditions: - true or false depending on if objects are equal
+// Assumptions: to compare a moive object with a classics object I'm downcasting 
+//	the movie object to classics
+//	-from my understanding this downcast should always work in this case.
+bool Classics::operator==(const Movie &otherData) const
+{
+	//downcasting movie to classics 
+	const Classics *classicsPtr = dynamic_cast<const Classics*>(&otherData);
+
+	//checking if the downcast was good (should always be good)
+	if (classicsPtr == nullptr)
+	{
+		cout << "Error" << endl;
+		return false;
+	}
+
+	return (getDirector() == classicsPtr->getDirector())
+		&& (getTitle() == classicsPtr->getTitle());
 }
 
 
 //------------------------ operator> ------------------------------------------
-// Preconditions: drama object and movie object
+// Preconditions: classics object and movie object
 // Postconditions: - true or false depending on if this object is smaller 
-// Assumptions: to compare a moive object with a drama object I'm downcasting 
-//	the movie object to drama
+// Assumptions: to compare a moive object with a classics object I'm downcasting 
+//	the movie object to classics
 //	-from my understanding this downcast should always work in this case.
-bool Drama::operator>(const Movie &otherData) const
+bool Classics::operator>(const Movie &otherData) const
 {
-	//downcasting movie to drama 
-	const Drama *dramaPtr = dynamic_cast<const Drama*>(&otherData);
+	//downcasting movie to classics 
+	const Classics *classicsPtr = dynamic_cast<const Classics*>(&otherData);
 
 	//checking if the downcast was good (should always be good)
-	if (dramaPtr == nullptr)
+	if (classicsPtr == nullptr)
 	{
 		cout << "Error" << endl;
 		return false;
 	}
 
 	//if directors are the same compare by title
-	if (getDirector() != dramaPtr->getDirector())
+	if (getDirector() != classicsPtr->getDirector())
 	{
-		return getDirector() > dramaPtr->getDirector();
+		return getDirector() > classicsPtr->getDirector();
 	}
 	else
 	{
-		return getTitle() > dramaPtr->getTitle();
+		return getTitle() > classicsPtr->getTitle();
 	}
 }
 
 //------------------------------Destructor-----------------------------------
-// Preconditions: drama object
-// Postconditions:  - drama object is gone
-Drama::~Drama()
+// Preconditions: classics object
+// Postconditions:  - classics object is gone
+Classics::~Classics()
 {
 
 }

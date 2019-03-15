@@ -44,7 +44,8 @@ public:
 	string getDirector() const;
 	int getYear() const;
 	int getCurrentStock() const;
-
+	int getMaxStock() const;
+	void increaseStockLevel(int newStock);
 	void borrow();
 	void giveBack();
 
@@ -53,7 +54,6 @@ public:
 
 	virtual bool operator=(const Movie &) = 0;
 	virtual bool operator==(const Movie &) const = 0;
-	virtual bool operator<(const Movie &) const = 0;
 	virtual bool operator>(const Movie &) const = 0;
 
 	virtual ~Movie();

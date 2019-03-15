@@ -46,7 +46,6 @@ public:
 
 	virtual bool operator=(const Movie &);
 	virtual bool operator==(const Movie &) const;
-	virtual bool operator<(const Movie &) const;
 	virtual bool operator>(const Movie &) const;
 
 	virtual ~Drama();
