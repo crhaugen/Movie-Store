@@ -53,7 +53,7 @@ string Movie::getDirector() const
 	return director;
 }
 
-//------------------------ getDirector ------------------------------------
+//------------------------ getYear ------------------------------------
 // Preconditions:   None
 // Postconditions: - Year is returned
 int Movie::getYear() const
