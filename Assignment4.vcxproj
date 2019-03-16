@@ -148,6 +148,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BinTree.h" />
+    <ClInclude Include="Classics.h" />
+    <ClInclude Include="Comedy.h" />
     <ClInclude Include="Drama.h" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="stdafx.h" />
@@ -157,6 +159,8 @@
   <ItemGroup>
     <ClCompile Include="Assignment4.cpp" />
     <ClCompile Include="BinTree.cpp" />
+    <ClCompile Include="Classics.cpp" />
+    <ClCompile Include="Comedy.cpp" />
     <ClCompile Include="Drama.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="stdafx.cpp">

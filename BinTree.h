@@ -63,6 +63,13 @@ private:
 	// - Assumption: Nodedata will be deallocated by user.
 	bool insertHelper(Node *&root, Movie* item);
 
+	//-----------------------------insertHelper---------------------------------
+	// Private function to find a node into the tree
+	// Preconditions: root points to null or node(s).
+	// Postconditions:  -Either true or false will be return. Either node has 
+	//  been found or not
+	bool findHelper(Node *&root, Movie *item);
+
 
 public:
 
@@ -113,6 +120,13 @@ public:
 	//	stock of that movie of both movies to be total, but they will be 
 	//	kept separate.
 	int retrieveByTitle(string title, int stock) const;
+
+	//--------------------------------find---------------------------------
+	// -Function calls findHelper function to find object in tree.
+	// Preconditions: root points to null or node(s).
+	// Postconditions:  -Either true or false will be return. Either node has 
+	//  been found or not
+	bool find(Movie* item);
 
 
 	//------------------------------operator<<-----------------------------------

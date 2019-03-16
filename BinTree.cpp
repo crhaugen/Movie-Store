@@ -108,6 +108,41 @@ bool BinTree::insertHelper(Node *&root, Movie *item)
 	}
 }
 
+//--------------------------------find---------------------------------
+// -Function calls findHelper function to find object in tree.
+// Preconditions: root points to null or node(s).
+// Postconditions:  -Either true or false will be return. Either node has 
+//  been found or not
+bool BinTree::find(Movie* item)
+{
+	return findHelper(this->root, item);
+}
+
+//-----------------------------insertHelper---------------------------------
+// Private function to find a node into the tree
+// Preconditions: root points to null or node(s).
+// Postconditions:  -Either true or false will be return. Either node has 
+//  been found or not
+bool BinTree::findHelper(Node *&root, Movie *item)
+{
+	if (root == nullptr)
+	{
+		return false;
+	}
+	else if (*root->data == *item)
+	{
+		return true; //if data already in tree return true.
+	}
+	else if (*root->data > *item)
+	{
+		findHelper(root->left, item);
+	}
+	else
+	{
+		findHelper(root->right, item);
+	}
+}
+
 
 //------------------------------isEmpty----------------------------------------
 // Preconditions:  A bintree object.
