@@ -94,6 +94,8 @@ bool Drama::setSortingAttributes(istream& infile)
 	//getting year 
 	infile.get();
 	infile >> year;
+
+	return true;
 }
 
 //------------------------ display() ------------------------------------------

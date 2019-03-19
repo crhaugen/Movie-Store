@@ -89,7 +89,7 @@ void Store::buildMovies(istream& infile)
 
 				//if object is already in the tree delete
 				if (!dramaTree.insert(movie))
-				{
+				{ 
 					delete movie;
 				}
 
@@ -164,7 +164,7 @@ void Store::readTransaction(istream& infile)
 		else
 		{
 			Transaction *transPtr = 
-				Transaction::makeTransactionType(transType);
+				TransactionFactory::makeTransactionType(transType);
 
 			if (transPtr == NULL)
 			{
@@ -183,7 +183,7 @@ void Store::readTransaction(istream& infile)
 				{
 					Customer *custPtr = customerHash.getCustomer(customerID);
 
-					if (transPtr->getTransactionType != "History")
+					if (transPtr->getTransactionType() != "History")
 					{
 						char media = ' ';
 						infile >> media;
@@ -192,7 +192,7 @@ void Store::readTransaction(istream& infile)
 						char movieType = ' ';
 						infile >> movieType;
 						Movie *moviePtr =
-							Movie::makeMovieType(movieType);
+							MovieFactory::makeMovieType(movieType);
 
 						if (moviePtr == NULL)
 						{
@@ -206,9 +206,8 @@ void Store::readTransaction(istream& infile)
 							if (returnMovie != NULL)
 							{
 								//if valid transaction
-								if (custPtr->isTransactionValid(transPtr->getTransactionType, returnMovie))
+								if (transPtr->setData(custPtr, media, returnMovie))
 								{
-									transPtr->setData(custPtr, media, returnMovie);
 									custPtr->setTransaction(transPtr);
 								}
 							}

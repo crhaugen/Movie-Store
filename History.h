@@ -27,7 +27,7 @@
 #include "stdafx.h" 
 
 #include "Transaction.h"
-
+class Customer;
 class History : public Transaction
 {
 public:

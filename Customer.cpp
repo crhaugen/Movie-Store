@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Customer.h"
 
 Customer::Customer()
@@ -48,7 +49,7 @@ bool Customer::hasItem(Movie *item) const
 			if (history.at(i)->getMovie() == item)
 			{
 				//I have the item
-				if (history.at(i)->getTransactionType == "Borrow")
+				if (history.at(i)->getTransactionType() == "Borrow")
 				{
 					return true;
 				}

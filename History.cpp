@@ -22,8 +22,9 @@
 //
 // ----------------------------------------------------------------------------
 
-
+#include "stdafx.h"
 #include "History.h"
+#include "Customer.h"
 
 
 //------------------------ Default constructor -------------------------------
@@ -36,8 +37,6 @@ History::History()
 
 void History::display() const
 {
-	cout << mediaType << ": ";
-	movieType->display();
 	cout << transactionType << endl;
 }
 
@@ -46,15 +45,8 @@ void History::display() const
 // Postconditions:  - information about the transaction has been set
 bool History::setData(Customer *customer, char media, Movie *item)
 {
-	if (customer->isTransactionValid(this->transactionType, item))
-	{
-		this->mediaType = media;
-		this->movieType = item;
-
-		return item->giveBack();
-	}
-
-	return false;
+	customer->displayHistory();
+	return true;
 }
 
 //------------------------------Destructor-----------------------------------

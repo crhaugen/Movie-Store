@@ -28,14 +28,15 @@
 
 #include "stdafx.h"
 
-#include "Drama.h"
-#include "Comedy.h"
-#include "Classics.h"
+
 #include "BinTree.h"
+#include "Customer.h"
 #include "Transaction.h"
 #include "Movie.h"
+#include "MovieFactory.h"
+#include "TransactionFactory.h"
 #include "HashCustomer.h"
-#include "Customer.h"
+
 #include <iostream>
 
 using namespace std;

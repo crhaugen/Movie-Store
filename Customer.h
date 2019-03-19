@@ -1,9 +1,9 @@
 #pragma once
-
+#include "stdafx.h"
+#include "Transaction.h"
 #include <istream>
 #include <vector>
 
-#include "Transaction.h"
 using namespace std;
 
 class Customer
@@ -12,7 +12,7 @@ private:
 	string firstName;
 	string lastName;
 	int ID;
-	vector<Transaction *> history;
+	vector<Transaction*> history;
 
 	bool hasItem(Movie *) const;
 

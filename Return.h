@@ -28,6 +28,7 @@
 
 #include "Transaction.h"
 
+class Customer;
 class Return : public Transaction
 {
 

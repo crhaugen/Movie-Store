@@ -22,9 +22,8 @@
 //		-
 //
 // ----------------------------------------------------------------------------
-
+#include "stdafx.h"
 #include "Transaction.h"
-
 
 
 //------------------------ Default constructor -------------------------------
@@ -45,33 +44,6 @@ Movie* Transaction::getMovie() const
 	return movieType;
 }
 
-//------------------------------makeTransactionType-----------------------------------
-// Preconditions: type of transaction to be made
-// Postconditions:  - transaction of said type is made and returned
-Transaction* Transaction::makeTransactionType(char type)
-{
-	switch (type)
-	{
-
-	case 'I':
-		return new Show;
-		break;
-	case 'H':
-		return new History;
-		break;
-	case 'B':
-		return new Borrow;
-		break;
-	case 'R':
-		return new Return;
-		break;
-
-	default:
-		return NULL;
-		break;
-
-	}
-}
 
 //------------------------------Destructor-----------------------------------
 // Preconditions: transaction object

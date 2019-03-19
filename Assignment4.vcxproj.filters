@@ -39,6 +39,30 @@
     <ClInclude Include="Classics.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Transaction.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Return.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Borrow.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="History.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Customer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HashCustomer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MovieFactory.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionFactory.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -63,6 +87,30 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Return.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Borrow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="History.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Customer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HashCustomer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MovieFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransactionFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

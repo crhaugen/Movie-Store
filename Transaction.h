@@ -27,15 +27,12 @@
 
 #include "stdafx.h"
 #include <iostream>
-#include "Show.h"
-#include "Show.h"
-#include "Borrow.h"
-#include "Return.h"
-#include "History.h"
 #include "Movie.h"
-#include "Customer.h"
+//#include "Customer.h"
 
 using namespace std;
+
+class Customer; //can't include customer.h
 
 class Transaction
 {
@@ -56,10 +53,6 @@ public:
 	virtual void display() const = 0;
 	virtual bool setData(Customer *customer, char media, Movie *item) = 0;
 
-	//------------------------------makeTransactionType-----------------------------------
-	// Preconditions: type of transaction to be made
-	// Postconditions:  - transaction of said type is made and returned
-	static Transaction* makeTransactionType(char type);
 
 	//------------------------------Destructor-----------------------------------
 	// Preconditions: transaction object

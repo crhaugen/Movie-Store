@@ -28,7 +28,7 @@
 #include "stdafx.h" 
 #include "Transaction.h"
 
-
+class Customer;
 class Borrow : public Transaction
 {
 public:

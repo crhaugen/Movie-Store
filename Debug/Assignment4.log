@@ -1,10 +1,5 @@
-﻿  Assignment4.cpp
-  Classics.cpp
-  Comedy.cpp
-  Drama.cpp
-  Store.cpp
+﻿  Borrow.cpp
+  History.cpp
+  Return.cpp
   Generating Code...
-c:\users\chyanne\source\repos\assignment4\assignment4\drama.cpp(101): warning C4715: 'Drama::operator=': not all control paths return a value
-c:\users\chyanne\source\repos\assignment4\assignment4\comedy.cpp(101): warning C4715: 'Comedy::operator=': not all control paths return a value
-c:\users\chyanne\source\repos\assignment4\assignment4\classics.cpp(126): warning C4715: 'Classics::operator=': not all control paths return a value
   Assignment4.vcxproj -> C:\Users\Chyanne\source\repos\Assignment4\Debug\Assignment4.exe

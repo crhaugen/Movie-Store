@@ -22,11 +22,10 @@
 //
 // ----------------------------------------------------------------------------
 #pragma once
+
 #include "stdafx.h"
 #include <iostream>
-#include "Comedy.h"
-#include "Classics.h"
-#include "Drama.h"
+
 #include <string>
 using namespace std;
 
@@ -118,8 +117,6 @@ public:
 	// Notes: virtual function used in other classes
 	virtual bool operator>(const Movie &) const = 0;
 
-
-	static Movie* makeMovieType(char type);
 
 	virtual bool equalsBySortType(const Movie &) const = 0;
 

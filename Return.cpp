@@ -21,9 +21,9 @@
 //		-
 //
 // ----------------------------------------------------------------------------
-
+#include "stdafx.h"
 #include "Return.h"
-
+#include "Customer.h"
 //------------------------ Default constructor -------------------------------
 // Preconditions:   None
 // Postconditions: - Return object created

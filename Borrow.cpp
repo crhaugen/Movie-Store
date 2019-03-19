@@ -21,8 +21,9 @@
 //		-
 //
 // ----------------------------------------------------------------------------
-
+#include "stdafx.h"
 #include "Borrow.h"
+#include "Customer.h"
 
 //------------------------ Default constructor -------------------------------
 // Preconditions:   None
