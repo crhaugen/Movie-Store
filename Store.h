@@ -34,6 +34,8 @@
 #include "BinTree.h"
 #include "Transaction.h"
 #include "Movie.h"
+#include "HashCustomer.h"
+#include "Customer.h"
 #include <iostream>
 
 using namespace std;
@@ -45,15 +47,18 @@ private:
 	BinTree comedyTree;
 	BinTree classicsTree;
 
-	bool validCustomer(int id);
+	HashCustomer customerHash;
+
 	Movie* checkingMovie(char movieType, Movie *moviePtr);
+	void displayItems() const;
 
 public:
 
 	Store();
 
+	void addCustomers(istream& infile);
 	void buildMovies(istream& infile);
 	void readTransaction(istream& infile);
 
-
+	~Store();
 };

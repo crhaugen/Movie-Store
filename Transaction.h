@@ -50,8 +50,10 @@ public:
 	// Preconditions:   None
 	// Postconditions: - Transaction object created
 	Transaction();
-	string getTransactionType();
+	string getTransactionType() const;
+	Movie* getMovie() const;
 
+	virtual void display() const = 0;
 	virtual bool setData(Customer *customer, char media, Movie *item) = 0;
 
 	//------------------------------makeTransactionType-----------------------------------

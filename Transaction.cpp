@@ -35,9 +35,14 @@ Transaction::Transaction()
 	transactionType = " ";
 }
 
-string Transaction::getTransactionType()
+string Transaction::getTransactionType() const
 {
 	return transactionType;
+}
+
+Movie* Transaction::getMovie() const
+{
+	return movieType;
 }
 
 //------------------------------makeTransactionType-----------------------------------

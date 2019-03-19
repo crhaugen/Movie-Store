@@ -37,7 +37,7 @@ public:
 	History();
 
 
-
+	virtual void display() const;
 	virtual bool setData(Customer *customer, char media, Movie *item);
 
 	//------------------------------Destructor-----------------------------------

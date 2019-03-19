@@ -6,20 +6,21 @@
 
 const int MAX_CUSTOMER = 500;
 
-class HashFactory
+class HashCustomer
 {
 private:
 
 	vector<vector<Customer*>*> customers;
 
-	int hash(string ID);
+	int hash(int ID);
 
 
 public:
-	HashFactory();
+	HashCustomer();
 
 	bool addCustomer(Customer *);
-	bool isCustomer(Customer *);
+	bool isCustomer(int);
+	Customer* getCustomer(int customerID);
 
-	~HashFactory();
+	~HashCustomer();
 };

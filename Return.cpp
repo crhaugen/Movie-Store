@@ -53,7 +53,7 @@ void Return::display() const
 {
 	cout << mediaType << ": ";
 	movieType->display();
-	cout << transactionType << endl;
+	cout << " " << transactionType << endl;
 }
 
 //------------------------------Destructor-----------------------------------

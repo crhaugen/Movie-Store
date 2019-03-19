@@ -46,7 +46,7 @@ public:
 	//------------------------------Destructor-----------------------------------
 	// Preconditions: movie object
 	// Postconditions:  - Return object is gone
-	void display() const;
+	virtual void display() const;
 
 	~Return();
 };

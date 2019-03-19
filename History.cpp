@@ -34,13 +34,27 @@ History::History()
 	transactionType = "History";
 }
 
+void History::display() const
+{
+	cout << mediaType << ": ";
+	movieType->display();
+	cout << transactionType << endl;
+}
 
 //------------------------------setData-----------------------------------
 // Preconditions: history object
 // Postconditions:  - information about the transaction has been set
 bool History::setData(Customer *customer, char media, Movie *item)
 {
+	if (customer->isTransactionValid(this->transactionType, item))
+	{
+		this->mediaType = media;
+		this->movieType = item;
 
+		return item->giveBack();
+	}
+
+	return false;
 }
 
 //------------------------------Destructor-----------------------------------

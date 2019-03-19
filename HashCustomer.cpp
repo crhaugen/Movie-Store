@@ -1,19 +1,18 @@
 #include "HashCustomer.h"
 
-HashFactory::HashFactory()
+HashCustomer::HashCustomer()
 {
 	customers.resize(MAX_CUSTOMER);
 }
 
-int HashFactory::hash(string ID)
+int HashCustomer::hash(int customerID)
 {
-	int IDNumber = stoi(ID);
-	return IDNumber % MAX_CUSTOMER;
+	return customerID % MAX_CUSTOMER;
 }
 
-bool HashFactory::addCustomer(Customer *customer)
+bool HashCustomer::addCustomer(Customer *customer)
 {
-	int hashNum = hash(customer->getID);
+	int hashNum = hash(customer->getID());
 
 	if (customers.at(hashNum) == NULL)
 	{
@@ -37,15 +36,15 @@ bool HashFactory::addCustomer(Customer *customer)
 	return true;
 }
 
-bool HashFactory::isCustomer(Customer *customer)
+bool HashCustomer::isCustomer(int customerID)
 {
-	int hashNum = hash(customer->getID);
+	int hashNum = hash(customerID);
 
 	if (customers.at(hashNum) != nullptr)
 	{
 		for (int i = 0; i < customers.at(hashNum)->size(); i++)
 		{
-			if (customers.at(hashNum)->at(i)->getID() == customer->getID())
+			if (customers.at(hashNum)->at(i)->getID() == customerID)
 			{
 				return true;
 			}
@@ -55,7 +54,25 @@ bool HashFactory::isCustomer(Customer *customer)
 	return false;
 }
 
-HashFactory::~HashFactory()
+Customer* HashCustomer::getCustomer(int customerID)
+{
+	int hashNum = hash(customerID);
+
+	if (customers.at(hashNum) != nullptr)
+	{
+		for (int i = 0; i < customers.at(hashNum)->size(); i++)
+		{
+			if (customers.at(hashNum)->at(i)->getID() == customerID)
+			{
+				return customers.at(hashNum)->at(i);
+			}
+		}
+	}
+
+	return NULL;
+}
+
+HashCustomer::~HashCustomer()
 {
 
 }

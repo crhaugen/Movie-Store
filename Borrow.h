@@ -43,7 +43,7 @@ public:
 	// Postconditions:  - information about the transaction has been set
 	virtual bool setData(Customer *customer, char media, Movie *item);
 
-	void display() const;
+	virtual void display() const;
 
 	//------------------------------Destructor-----------------------------------
 	// Preconditions: movie object

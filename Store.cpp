@@ -31,10 +31,6 @@ Store::Store()
 	
 }
 
-bool Store::validCustomer(int id)
-{
-	return false;
-}
 
 Movie* Store::checkingMovie(char movieType, Movie *moviePtr)
 {
@@ -53,6 +49,22 @@ Movie* Store::checkingMovie(char movieType, Movie *moviePtr)
 	}
 
 	return temp;
+}
+
+void Store::addCustomers(istream& infile)
+{
+	while (true)
+	{
+		Customer *customer = new Customer; 
+		customer->setData(infile);
+
+		if (infile.eof())
+		{
+			delete customer;
+		}
+
+		customerHash.addCustomer(customer);
+	}
 }
 
 void Store::buildMovies(istream& infile)
@@ -147,6 +159,7 @@ void Store::readTransaction(istream& infile)
 		if (transType == 'S')
 		{
 			//do print of store
+			this->displayItems();
 		}
 		else
 		{
@@ -156,15 +169,20 @@ void Store::readTransaction(istream& infile)
 			if (transPtr == NULL)
 			{
 				cout << "Transaction type not vaild" << endl;
-				//clean line
+				//removing line
+				string junkData;
+				getline(infile, junkData);
 			}
 			else
 			{
 				int customerID = 0;
 				infile >> customerID;
 
-				if (validCustomer(customerID))
+				//check if customer is valid
+				if (customerHash.isCustomer(customerID))
 				{
+					Customer *custPtr = customerHash.getCustomer(customerID);
+
 					if (transPtr->getTransactionType != "History")
 					{
 						char media = ' ';
@@ -187,31 +205,50 @@ void Store::readTransaction(istream& infile)
 							Movie *returnMovie = checkingMovie(movieType, moviePtr);
 							if (returnMovie != NULL)
 							{
-								transPtr->setData(customer, media, returnMovie);
-								//add trans to user and check is trans is good in user
+								//if valid transaction
+								if (custPtr->isTransactionValid(transPtr->getTransactionType, returnMovie))
+								{
+									transPtr->setData(custPtr, media, returnMovie);
+									custPtr->setTransaction(transPtr);
+								}
 							}
 							else
 							{
 								cout << "Movie is not valid " << endl;
+								//removing line
+								string junkData;
+								getline(infile, junkData);
 							}
-
-							delete moviePtr;
 
 						}
 					}
 					else
 					{
-						//print customer history
+						custPtr->displayHistory();
 					}
 				}
 				else
 				{
 					cout << "Customer ID not valid" << endl;
-					//clean line
+					//removing line
+					string junkData;
+					getline(infile, junkData);
 				}
 			}
 			
 		}
 
 	}
+}
+
+void Store::displayItems() const
+{
+	cout << comedyTree << endl;
+	cout << dramaTree << endl;
+	cout << classicsTree << endl;
+}
+
+Store::~Store()
+{
+
 }
