@@ -1,12 +1,19 @@
 #pragma once
 
 #include "Customer.h"
+#include <vector>
+#include <string>
+
 const int MAX_CUSTOMER = 500;
 
 class HashFactory
 {
 private:
-	Customer * customers[MAX_CUSTOMER];
+
+	vector<vector<Customer*>*> customers;
+
+	int hash(string ID);
+
 
 public:
 	HashFactory();
