@@ -36,10 +36,9 @@ public:
 	// Postconditions: - History object created
 	History();
 
-	virtual void doTransaction();
 
 
-	virtual void setData(Customer *customer, string media, Movie *item);
+	virtual bool setData(Customer *customer, char media, Movie *item);
 
 	//------------------------------Destructor-----------------------------------
 	// Preconditions: movie object

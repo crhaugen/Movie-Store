@@ -32,17 +32,13 @@ Show::Show()
 	transactionType = "Show";
 }
 
-void Show::doTransaction()
-{
-
-}
 
 //------------------------------setData-----------------------------------
 // Preconditions: show object
 // Postconditions:  - information about the transaction has been set
-void Show::setData(Customer *customer, string media, Movie *item)
+bool Show::setData(Customer *customer, char media, Movie *item)
 {
-
+	//print out customer history
 }
 
 //------------------------------Destructor-----------------------------------

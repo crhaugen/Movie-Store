@@ -49,7 +49,9 @@ public:
 	string getLastName() const;
 
 	virtual bool setData(istream &);
-	bool setSortingAttributes(istream& infile);
+	virtual bool setSortingAttributes(istream& infile);
+
+	virtual bool equalsBySortType(const Movie &otherData ) const;
 	virtual void display() const;
 
 	virtual bool operator=(const Movie &);

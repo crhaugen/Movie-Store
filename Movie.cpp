@@ -89,31 +89,33 @@ void Movie::increaseStockLevel(int newStock)
 //------------------------ borrow --------------------------------------
 // Preconditions:   object of movie type
 // Postconditions: - current stock decreased by 1 
-void Movie::borrow()
+bool Movie::borrow()
 {
 	//can't let user borrow if no stock available
 	if (currentStock <= 0)
 	{
 		cout << "None to borrow" << endl;
-		return;
+		return false;
 	}
 
 	currentStock--;
+	return true;
 }
 
 //------------------------ giveBack --------------------------------------
 // Preconditions:   object of movie type
 // Postconditions: - current stock increased by 1 
-void Movie::giveBack()
+bool Movie::giveBack()
 {
 	//if at max amount of stock user can't give anything back
 	if (currentStock == maxStock)
 	{
 		cout << "Movie stock is at max" << endl;
-		return;
+		return false;
 	}
 
 	currentStock++;
+	return true;
 }
 
 //------------------------------makeTransactionType-----------------------------------

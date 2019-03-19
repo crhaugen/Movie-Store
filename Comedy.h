@@ -42,8 +42,8 @@ public:
 	virtual bool setData(istream &);
 	virtual void display() const;
 
-	bool setSortingAttributes(istream& infile);
-
+	virtual bool setSortingAttributes(istream& infile);
+	virtual bool equalsBySortType(const Movie &) const;
 
 	virtual bool operator=(const Movie &);
 	virtual bool operator==(const Movie &) const;

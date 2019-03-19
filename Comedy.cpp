@@ -81,6 +81,22 @@ bool Comedy::setSortingAttributes(istream& infile)
 	return true;
 }
 
+bool Comedy::equalsBySortType(const Movie &otherData) const
+{
+	//downcasting movie to comedy 
+	const Comedy *comedyPtr = dynamic_cast<const Comedy*>(&otherData);
+
+	//checking if the downcast was good (should always be good)
+	if (comedyPtr == nullptr)
+	{
+		cout << "Error" << endl;
+		return false;
+	}
+
+	return (this->year == comedyPtr->getYear())
+		&& (this->title == comedyPtr->getTitle());
+}
+
 //------------------------ display() ------------------------------------------
 // Preconditions: comedy object
 // Postconditions: - prints out information from comedy object

@@ -187,7 +187,7 @@ void Store::readTransaction(istream& infile)
 							Movie *returnMovie = checkingMovie(movieType, moviePtr);
 							if (returnMovie != NULL)
 							{
-								transPtr->setData(cutomer, media, returnMovie);
+								transPtr->setData(customer, media, returnMovie);
 								//add trans to user and check is trans is good in user
 							}
 							else

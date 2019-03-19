@@ -33,22 +33,28 @@ Borrow::Borrow()
 }
 
 
-void Borrow::doTransaction()
-{
-
-}
 
 //------------------------------setData-----------------------------------
 // Preconditions: Borrow object
 // Postconditions:  - information about the transaction has been set
-void Borrow::setData(Customer *customer, string media, Movie *item)
+bool Borrow::setData(Customer *customer, char media, Movie *item)
 {
+	if (customer->isTransactionValid(this->transactionType, item))
+	{
+		this->mediaType = media;
+		this->movieType = item;
 
+		return item->borrow();
+	}
+
+	return false;
 }
 
 void Borrow::display() const
 {
-
+	cout << mediaType << ": ";
+	movieType->display();
+	cout << transactionType << endl;
 }
 
 //------------------------------Destructor-----------------------------------

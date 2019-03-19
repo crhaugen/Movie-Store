@@ -32,22 +32,28 @@ Return::Return()
 	transactionType = "Return";
 }
 
-void Return::doTransaction()
-{
-
-}
 
 //------------------------------setData-----------------------------------
 // Preconditions: Return object
 // Postconditions:  - information about the transaction has been set
-void Return::setData(Customer *customer, string media, Movie *item)
+bool Return::setData(Customer *customer, char media, Movie *item)
 {
+	if (customer->isTransactionValid(this->transactionType, item))
+	{
+		this->mediaType = media;
+		this->movieType = item;
 
+		return item->giveBack();
+	}
+
+	return false;
 }
 
 void Return::display() const
 {
-
+	cout << mediaType << ": ";
+	movieType->display();
+	cout << transactionType << endl;
 }
 
 //------------------------------Destructor-----------------------------------

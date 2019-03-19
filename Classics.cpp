@@ -106,6 +106,24 @@ bool Classics::setSortingAttributes(istream& infile)
 	return true;
 }
 
+bool Classics::equalsBySortType(const Movie &otherData) const
+{
+	//downcasting movie to comedy 
+	const Classics *classicsPtr = dynamic_cast<const Classics*>(&otherData);
+
+	//checking if the downcast was good (should always be good)
+	if (classicsPtr == nullptr)
+	{
+		cout << "Error" << endl;
+		return false;
+	}
+
+	return (this->year == classicsPtr->getYear())
+		&& (this->month == classicsPtr->getMonth())
+		&& (this->firstName == classicsPtr->getFirstName())
+		&& (this->lastName == classicsPtr->getLastName());
+}
+
 
 //------------------------ display() ------------------------------------------
 // Preconditions: classics object

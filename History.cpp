@@ -34,15 +34,11 @@ History::History()
 	transactionType = "History";
 }
 
-void History::doTransaction()
-{
-
-}
 
 //------------------------------setData-----------------------------------
 // Preconditions: history object
 // Postconditions:  - information about the transaction has been set
-void History::setData(Customer *customer, string media, Movie *item)
+bool History::setData(Customer *customer, char media, Movie *item)
 {
 
 }

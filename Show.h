@@ -38,12 +38,12 @@ public:
 	// Postconditions: - Show object created
 	Show();
 
-	virtual void doTransaction();
+	
 
 	//------------------------------setData-----------------------------------
 	// Preconditions: show object
 	// Postconditions:  - information about the transaction has been set
-	virtual void setData(Customer *customer, string media, Movie *item);
+	virtual bool setData(Customer *customer, char media, Movie *item);
 
 
 

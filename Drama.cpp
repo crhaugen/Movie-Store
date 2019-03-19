@@ -68,6 +68,23 @@ bool Drama::setData(istream& infile)
 	return true;
 }
 
+bool Drama::equalsBySortType(const Movie &otherData) const
+{
+	//downcasting movie to comedy 
+	const Drama *dramaPtr = dynamic_cast<const Drama*>(&otherData);
+
+	//checking if the downcast was good (should always be good)
+	if (dramaPtr == nullptr)
+	{
+		cout << "Error" << endl;
+		return false;
+	}
+
+	return (this->year == dramaPtr->getYear())
+		&& (this->director == dramaPtr->getDirector());
+}
+
+
 bool Drama::setSortingAttributes(istream& infile)
 {
 	//geting director information

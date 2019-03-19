@@ -26,8 +26,8 @@
 #pragma once
 
 #include "stdafx.h" 
-
 #include "Transaction.h"
+
 
 class Borrow : public Transaction
 {
@@ -37,12 +37,11 @@ public:
 	// Postconditions: - Borrow object created
 	Borrow();
 
-	virtual void doTransaction();
 
 	//------------------------------setData-----------------------------------
 	// Preconditions: show object
 	// Postconditions:  - information about the transaction has been set
-	virtual void setData(Customer *customer, string media, Movie *item);
+	virtual bool setData(Customer *customer, char media, Movie *item);
 
 	void display() const;
 

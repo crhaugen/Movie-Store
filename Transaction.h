@@ -33,6 +33,7 @@
 #include "Return.h"
 #include "History.h"
 #include "Movie.h"
+#include "Customer.h"
 
 using namespace std;
 
@@ -41,6 +42,7 @@ class Transaction
 protected:
 	string transactionType;
 	string mediaType;
+	Movie *movieType;
 
 public:
 
@@ -50,8 +52,7 @@ public:
 	Transaction();
 	string getTransactionType();
 
-	virtual void doTransaction() = 0;
-	virtual void setData(Customer *customer, string media, Movie *item) = 0;
+	virtual bool setData(Customer *customer, char media, Movie *item) = 0;
 
 	//------------------------------makeTransactionType-----------------------------------
 	// Preconditions: type of transaction to be made

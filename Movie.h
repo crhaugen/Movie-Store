@@ -78,12 +78,12 @@ public:
 	//------------------------ borrow --------------------------------------
 	// Preconditions:   object of movie type
 	// Postconditions: - current stock decreased by 1 
-	void borrow();
+	bool borrow();
 
 	//------------------------ giveBack --------------------------------------
 	// Preconditions:   object of movie type
 	// Postconditions: - current stock increased by 1 
-	void giveBack();
+	bool giveBack();
 
 	//------------------------ setData --------------------------------------
 	// Preconditions:   stream object
@@ -120,6 +120,8 @@ public:
 
 
 	static Movie* makeMovieType(char type);
+
+	virtual bool equalsBySortType(const Movie &) const = 0;
 
 	//------------------------------Destructor-----------------------------------
 	// Preconditions: movie object
