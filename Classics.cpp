@@ -89,6 +89,23 @@ bool Classics::setData(istream& infile)
 	return true;
 }
 
+//------------------------ setSortingAttributes() ------------------------------------------
+// Preconditions: stream from a file
+// Postconditions: - classics object has information from file
+// Assumptions: data will be correctly formatted.
+bool Classics::setSortingAttributes(istream& infile)
+{
+	infile.get();
+
+	infile >> month;
+	infile >> year;
+
+	infile >> firstName;
+	infile >> lastName;
+
+	return true;
+}
+
 
 //------------------------ display() ------------------------------------------
 // Preconditions: classics object

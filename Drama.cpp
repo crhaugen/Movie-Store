@@ -68,6 +68,17 @@ bool Drama::setData(istream& infile)
 	return true;
 }
 
+bool Drama::setSortingAttributes(istream& infile)
+{
+	//geting director information
+	infile.get();
+	getline(infile, director, ',');
+
+	//getting year 
+	infile.get();
+	infile >> year;
+}
+
 //------------------------ display() ------------------------------------------
 // Preconditions: drama object
 // Postconditions: - prints out information from drama object

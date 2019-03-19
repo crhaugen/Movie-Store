@@ -24,7 +24,9 @@
 #pragma once
 #include "stdafx.h"
 #include <iostream>
-
+#include "Comedy.h"
+#include "Classics.h"
+#include "Drama.h"
 #include <string>
 using namespace std;
 
@@ -89,6 +91,9 @@ public:
 	// Notes: virtual function used in other classes
 	virtual bool setData(istream&) = 0;
 
+
+	virtual bool setSortingAttributes(istream& infile) = 0;
+
 	//------------------------ display --------------------------------------
 	// Preconditions:   movie object
 	// Postconditions: - data from movie object is displayed
@@ -112,6 +117,9 @@ public:
 	// Postconditions: -compares two movie objects to see which one is 'bigger'
 	// Notes: virtual function used in other classes
 	virtual bool operator>(const Movie &) const = 0;
+
+
+	static Movie* makeMovieType(char type);
 
 	//------------------------------Destructor-----------------------------------
 	// Preconditions: movie object

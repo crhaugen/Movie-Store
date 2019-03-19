@@ -68,6 +68,19 @@ bool Comedy::setData(istream& infile)
 	return true;
 }
 
+bool Comedy::setSortingAttributes(istream& infile)
+{
+	//geting title information
+	infile.get();
+	getline(infile, title, ',');
+
+	//getting year 
+	infile.get();
+	infile >> year;
+
+	return true;
+}
+
 //------------------------ display() ------------------------------------------
 // Preconditions: comedy object
 // Postconditions: - prints out information from comedy object

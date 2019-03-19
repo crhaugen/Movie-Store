@@ -36,6 +36,25 @@ bool Store::validCustomer(int id)
 	return false;
 }
 
+Movie* Store::checkingMovie(char movieType, Movie *moviePtr)
+{
+	Movie *temp = NULL;
+	switch (movieType)
+	{
+	case 'D':
+		dramaTree.retrieve(*moviePtr, temp);
+	case 'F':
+		comedyTree.retrieve(*moviePtr, temp);
+	case 'C':
+		classicsTree.retrieve(*moviePtr, temp);
+		break;
+	default:
+		cout << "Error invalid input (code) type" << endl;
+	}
+
+	return temp;
+}
+
 void Store::buildMovies(istream& infile)
 {
 	char movieType = ' ';
@@ -149,10 +168,36 @@ void Store::readTransaction(istream& infile)
 					if (transPtr->getTransactionType != "History")
 					{
 						char media = ' ';
-						
-						//check if media is valid 
+						infile >> media;
+						//check if media is valid // 
 						//create a movie base on input
+						char movieType = ' ';
+						infile >> movieType;
+						Movie *moviePtr =
+							Movie::makeMovieType(movieType);
 
+						if (moviePtr == NULL)
+						{
+							cout << "Type of movie not valid" << endl;
+							//clean line
+						}
+						else
+						{
+							moviePtr->setSortingAttributes(infile);
+							Movie *returnMovie = checkingMovie(movieType, moviePtr);
+							if (returnMovie != NULL)
+							{
+								transPtr->setData(cutomer, media, returnMovie);
+								//add trans to user and check is trans is good in user
+							}
+							else
+							{
+								cout << "Movie is not valid " << endl;
+							}
+
+							delete moviePtr;
+
+						}
 					}
 					else
 					{
@@ -161,7 +206,8 @@ void Store::readTransaction(istream& infile)
 				}
 				else
 				{
-
+					cout << "Customer ID not valid" << endl;
+					//clean line
 				}
 			}
 			

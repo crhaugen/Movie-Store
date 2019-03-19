@@ -116,6 +116,29 @@ void Movie::giveBack()
 	currentStock++;
 }
 
+//------------------------------makeTransactionType-----------------------------------
+// Preconditions: type of transaction to be made
+// Postconditions:  - transaction of said type is made and returned
+Movie* Movie::makeMovieType(char type)
+{
+	switch (type)
+	{
+	case 'F':
+		return new Comedy;
+		break;
+	case 'D':
+		return new Drama;
+		break;
+	case 'C':
+		return new Classics;
+		break;
+
+	default:
+		return NULL;
+		break;
+	}
+}
+
 //------------------------------Destructor-----------------------------------
 // Preconditions: movie object
 // Postconditions:  - movie object is gone

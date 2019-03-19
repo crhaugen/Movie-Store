@@ -33,6 +33,7 @@
 #include "Classics.h"
 #include "BinTree.h"
 #include "Transaction.h"
+#include "Movie.h"
 #include <iostream>
 
 using namespace std;
@@ -45,6 +46,7 @@ private:
 	BinTree classicsTree;
 
 	bool validCustomer(int id);
+	Movie* checkingMovie(char movieType, Movie *moviePtr);
 
 public:
 
