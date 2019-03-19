@@ -39,8 +39,10 @@ Movie* Store::checkingMovie(char movieType, Movie *moviePtr)
 	{
 	case 'D':
 		dramaTree.retrieve(*moviePtr, temp);
+		break;
 	case 'F':
 		comedyTree.retrieve(*moviePtr, temp);
+		break;
 	case 'C':
 		classicsTree.retrieve(*moviePtr, temp);
 		break;
@@ -61,6 +63,7 @@ void Store::addCustomers(istream& infile)
 		if (infile.eof())
 		{
 			delete customer;
+			return;
 		}
 
 		customerHash.addCustomer(customer);
@@ -187,38 +190,49 @@ void Store::readTransaction(istream& infile)
 					{
 						char media = ' ';
 						infile >> media;
-						//check if media is valid // 
-						//create a movie base on input
-						char movieType = ' ';
-						infile >> movieType;
-						Movie *moviePtr =
-							MovieFactory::makeMovieType(movieType);
+						//check if media is valid
+						if (media == 'D')
+						{
+							//create a movie base on input
+							char movieType = ' ';
+							infile >> movieType;
+							Movie *moviePtr =
+								MovieFactory::makeMovieType(movieType);
 
-						if (moviePtr == NULL)
-						{
-							cout << "Type of movie not valid" << endl;
-							//clean line
-						}
-						else
-						{
-							moviePtr->setSortingAttributes(infile);
-							Movie *returnMovie = checkingMovie(movieType, moviePtr);
-							if (returnMovie != NULL)
+							if (moviePtr == NULL)
 							{
-								//if valid transaction
-								if (transPtr->setData(custPtr, media, returnMovie))
-								{
-									custPtr->setTransaction(transPtr);
-								}
-							}
-							else
-							{
-								cout << "Movie is not valid " << endl;
-								//removing line
+								cout << "Type of movie not valid" << endl;
 								string junkData;
 								getline(infile, junkData);
 							}
+							else
+							{
+								moviePtr->setSortingAttributes(infile);
+								Movie *returnMovie = checkingMovie(movieType, moviePtr);
+								if (returnMovie != NULL)
+								{
+									//if valid transaction
+									if (transPtr->setData(custPtr, media, returnMovie))
+									{
+										custPtr->setTransaction(transPtr);
+									}
+								}
+								else
+								{
+									cout << "Movie is not valid " << endl;
+									//removing line
+									string junkData;
+									getline(infile, junkData);
+								}
 
+							}
+						}
+						else
+						{
+							cout << "Media type is not valid " << endl;
+							//removing line
+							string junkData;
+							getline(infile, junkData);
 						}
 					}
 					else
@@ -242,8 +256,11 @@ void Store::readTransaction(istream& infile)
 
 void Store::displayItems() const
 {
+	cout << "***DISPLAYING COMEDY MOVIES***" << endl;
 	cout << comedyTree << endl;
+	cout << "***DISPLAYING DRAMA MOVIES***" << endl;
 	cout << dramaTree << endl;
+	cout << "***DISPLAYING CLASSICS MOVIES***" << endl;
 	cout << classicsTree << endl;
 }
 

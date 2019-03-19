@@ -72,6 +72,7 @@ bool Classics::setData(istream& infile)
 
 	//geting director information
 	infile.get();
+	infile.get();
 	getline(infile, director, ',');
 
 	//geting title information
@@ -130,7 +131,7 @@ bool Classics::equalsBySortType(const Movie &otherData) const
 // Postconditions: - prints out information from classics object
 void Classics::display() const
 {
-	cout << getTitle() << " " << getDirector() << " " << getYear() << endl;
+	cout << getTitle() << " " << getDirector() << " " << getYear();
 }
 
 //------------------------ operator= ------------------------------------------

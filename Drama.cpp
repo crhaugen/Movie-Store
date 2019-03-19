@@ -55,6 +55,7 @@ bool Drama::setData(istream& infile)
 
 	//geting director information
 	infile.get();
+	infile.get();
 	getline(infile, director, ',');
 
 	//geting title information
@@ -80,7 +81,7 @@ bool Drama::equalsBySortType(const Movie &otherData) const
 		return false;
 	}
 
-	return (this->year == dramaPtr->getYear())
+	return (this->title == dramaPtr->getTitle())
 		&& (this->director == dramaPtr->getDirector());
 }
 
@@ -91,9 +92,9 @@ bool Drama::setSortingAttributes(istream& infile)
 	infile.get();
 	getline(infile, director, ',');
 
-	//getting year 
+	//geting title information
 	infile.get();
-	infile >> year;
+	getline(infile, title, ',');
 
 	return true;
 }
@@ -103,7 +104,7 @@ bool Drama::setSortingAttributes(istream& infile)
 // Postconditions: - prints out information from drama object
 void Drama::display() const
 {
-	cout << getTitle() << " " << getDirector() << " " << getYear() << endl;
+	cout << getTitle() << " " << getDirector() << " " << getYear();
 }
 
 //------------------------ operator= ------------------------------------------

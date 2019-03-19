@@ -42,7 +42,7 @@ bool HashCustomer::isCustomer(int customerID)
 {
 	int hashNum = hash(customerID);
 
-	if (customers.at(hashNum) != nullptr)
+	if (customers.at(hashNum) != NULL)
 	{
 		for (int i = 0; i < customers.at(hashNum)->size(); i++)
 		{
@@ -60,7 +60,7 @@ Customer* HashCustomer::getCustomer(int customerID)
 {
 	int hashNum = hash(customerID);
 
-	if (customers.at(hashNum) != nullptr)
+	if (customers.at(hashNum) != NULL)
 	{
 		for (int i = 0; i < customers.at(hashNum)->size(); i++)
 		{
@@ -76,5 +76,14 @@ Customer* HashCustomer::getCustomer(int customerID)
 
 HashCustomer::~HashCustomer()
 {
-
+	for (int i = 0; i < customers.size(); i++)
+	{
+		if (customers.at(i) != NULL)
+		{
+			for (int j = 0; j < customers.at(i)->size(); j++)
+			{
+				delete customers.at(i)->at(j);
+			}
+		}
+	}
 }

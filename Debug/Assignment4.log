@@ -1,5 +1,7 @@
-﻿  Borrow.cpp
-  History.cpp
-  Return.cpp
-  Generating Code...
+﻿  HashCustomer.cpp
+c:\users\chyanne\source\repos\assignment4\assignment4\hashcustomer.cpp(25): warning C4018: '<': signed/unsigned mismatch
+c:\users\chyanne\source\repos\assignment4\assignment4\hashcustomer.cpp(47): warning C4018: '<': signed/unsigned mismatch
+c:\users\chyanne\source\repos\assignment4\assignment4\hashcustomer.cpp(65): warning C4018: '<': signed/unsigned mismatch
+c:\users\chyanne\source\repos\assignment4\assignment4\hashcustomer.cpp(79): warning C4018: '<': signed/unsigned mismatch
+c:\users\chyanne\source\repos\assignment4\assignment4\hashcustomer.cpp(83): warning C4018: '<': signed/unsigned mismatch
   Assignment4.vcxproj -> C:\Users\Chyanne\source\repos\Assignment4\Debug\Assignment4.exe

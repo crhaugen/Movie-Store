@@ -168,7 +168,7 @@ bool BinTree::retrieve(const Movie &searchItem, Movie *&foundItem) const
 	while (tempPtr != nullptr)
 	{
 		//Found it! set foundItem to item and return true
-		if (tempPtr->data->equalsBySortType(*foundItem))
+		if (tempPtr->data->equalsBySortType(searchItem))
 		{
 			foundItem = tempPtr->data;
 			return true;

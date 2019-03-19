@@ -44,7 +44,7 @@ bool Customer::hasItem(Movie *item) const
 	if (history.size() > 0)
 	{
 		//going from lastest transactions
-		for (int i = history.size() - 1; i >= 0; i++)
+		for (int i = history.size() - 1; i >= 0; i--)
 		{
 			if (history.at(i)->getMovie() == item)
 			{
@@ -59,6 +59,8 @@ bool Customer::hasItem(Movie *item) const
 			}
 		}
 	}
+
+	return false;
 }
 
 void Customer::displayHistory() const
@@ -68,7 +70,7 @@ void Customer::displayHistory() const
 
 	if (history.size() > 0)
 	{
-		for (int i = history.size() - 1; i >= 0; i++)
+		for (int i = history.size() - 1; i >= 0; i--)
 		{
 			history.at(i)->display();
 		}
@@ -101,7 +103,7 @@ bool Customer::isTransactionValid(string transType, Movie *item) const
 	}
 	else if (transType == "Borrow" && !hasItem)
 	{
-		return false;
+		return true;
 	}
 }
 
@@ -113,5 +115,8 @@ void Customer::setTransaction(Transaction *trans)
 
 Customer::~Customer()
 {
-
+	for (int i = 0; i < history.size(); i++)
+	{
+		delete history.at(i);
+	}
 }
