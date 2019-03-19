@@ -42,7 +42,7 @@ void History::doTransaction()
 //------------------------------setData-----------------------------------
 // Preconditions: history object
 // Postconditions:  - information about the transaction has been set
-void History::setData()
+void History::setData(Customer *customer, string media, Movie *item)
 {
 
 }

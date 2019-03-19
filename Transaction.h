@@ -27,7 +27,12 @@
 
 #include "stdafx.h"
 #include <iostream>
-
+#include "Show.h"
+#include "Show.h"
+#include "Borrow.h"
+#include "Return.h"
+#include "History.h"
+#include "Movie.h"
 
 using namespace std;
 
@@ -35,6 +40,7 @@ class Transaction
 {
 protected:
 	string transactionType;
+	string mediaType;
 
 public:
 
@@ -42,17 +48,18 @@ public:
 	// Preconditions:   None
 	// Postconditions: - Transaction object created
 	Transaction();
+	string getTransactionType();
 
 	virtual void doTransaction() = 0;
-	virtual void setData() = 0;
+	virtual void setData(Customer *customer, string media, Movie *item) = 0;
 
 	//------------------------------makeTransactionType-----------------------------------
 	// Preconditions: type of transaction to be made
 	// Postconditions:  - transaction of said type is made and returned
-	static Transaction *makeTransactionType(char type);
+	static Transaction* makeTransactionType(char type);
 
 	//------------------------------Destructor-----------------------------------
 	// Preconditions: transaction object
 	// Postconditions:  - transaction object is gone
-	~Transaction();
+	virtual ~Transaction();
 };

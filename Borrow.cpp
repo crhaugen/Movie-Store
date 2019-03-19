@@ -41,7 +41,7 @@ void Borrow::doTransaction()
 //------------------------------setData-----------------------------------
 // Preconditions: Borrow object
 // Postconditions:  - information about the transaction has been set
-void Borrow::setData()
+void Borrow::setData(Customer *customer, string media, Movie *item)
 {
 
 }

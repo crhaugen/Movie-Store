@@ -40,7 +40,7 @@ void Show::doTransaction()
 //------------------------------setData-----------------------------------
 // Preconditions: show object
 // Postconditions:  - information about the transaction has been set
-void Show::setData()
+void Show::setData(Customer *customer, string media, Movie *item)
 {
 
 }

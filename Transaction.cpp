@@ -26,6 +26,7 @@
 #include "Transaction.h"
 
 
+
 //------------------------ Default constructor -------------------------------
 // Preconditions:   None
 // Postconditions: - Transaction object created
@@ -34,12 +35,37 @@ Transaction::Transaction()
 	transactionType = " ";
 }
 
+string Transaction::getTransactionType()
+{
+	return transactionType;
+}
+
 //------------------------------makeTransactionType-----------------------------------
 // Preconditions: type of transaction to be made
 // Postconditions:  - transaction of said type is made and returned
-static Transaction *makeTransactionType(char type)
+Transaction* Transaction::makeTransactionType(char type)
 {
+	switch (type)
+	{
 
+	case 'I':
+		return new Show;
+		break;
+	case 'H':
+		return new History;
+		break;
+	case 'B':
+		return new Borrow;
+		break;
+	case 'R':
+		return new Return;
+		break;
+
+	default:
+		return NULL;
+		break;
+
+	}
 }
 
 //------------------------------Destructor-----------------------------------

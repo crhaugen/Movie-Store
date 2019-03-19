@@ -42,7 +42,7 @@ public:
 	//------------------------------setData-----------------------------------
 	// Preconditions: show object
 	// Postconditions:  - information about the transaction has been set
-	virtual void setData();
+	virtual void setData(Customer *customer, string media, Movie *item);
 
 	void display() const;
 

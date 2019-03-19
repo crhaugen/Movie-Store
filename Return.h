@@ -22,8 +22,6 @@
 //
 // ----------------------------------------------------------------------------
 
-
-
 #pragma once
 
 #include "stdafx.h" 
@@ -44,7 +42,7 @@ public:
 	//------------------------------setData-----------------------------------
 	// Preconditions: Return object
 	// Postconditions:  - information about the transaction has been set
-	virtual void setData();
+	virtual void setData(Customer *customer, string media, Movie *item);
 
 	//------------------------------Destructor-----------------------------------
 	// Preconditions: movie object

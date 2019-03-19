@@ -40,7 +40,7 @@ void Return::doTransaction()
 //------------------------------setData-----------------------------------
 // Preconditions: Return object
 // Postconditions:  - information about the transaction has been set
-void Return::setData()
+void Return::setData(Customer *customer, string media, Movie *item)
 {
 
 }

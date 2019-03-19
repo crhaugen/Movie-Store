@@ -31,6 +31,8 @@
 
 class Show : public Transaction
 {
+
+public:
 	//------------------------ Default constructor -------------------------------
 	// Preconditions:   None
 	// Postconditions: - Show object created
@@ -41,7 +43,7 @@ class Show : public Transaction
 	//------------------------------setData-----------------------------------
 	// Preconditions: show object
 	// Postconditions:  - information about the transaction has been set
-	virtual void setData();
+	virtual void setData(Customer *customer, string media, Movie *item);
 
 
 

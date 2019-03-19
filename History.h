@@ -30,6 +30,7 @@
 
 class History : public Transaction
 {
+public:
 	//------------------------ Default constructor -------------------------------
 	// Preconditions:   None
 	// Postconditions: - History object created
@@ -38,7 +39,7 @@ class History : public Transaction
 	virtual void doTransaction();
 
 
-	virtual void setData();
+	virtual void setData(Customer *customer, string media, Movie *item);
 
 	//------------------------------Destructor-----------------------------------
 	// Preconditions: movie object

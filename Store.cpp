@@ -31,6 +31,11 @@ Store::Store()
 	
 }
 
+bool Store::validCustomer(int id)
+{
+	return false;
+}
+
 void Store::buildMovies(istream& infile)
 {
 	char movieType = ' ';
@@ -105,4 +110,62 @@ void Store::buildMovies(istream& infile)
 
 	}
 
+}
+
+void Store::readTransaction(istream& infile)
+{
+	char transType = ' ';
+
+	while (true)
+	{
+		infile >> transType;
+
+		if (infile.eof())
+		{
+			break;
+		}
+
+		if (transType == 'S')
+		{
+			//do print of store
+		}
+		else
+		{
+			Transaction *transPtr = 
+				Transaction::makeTransactionType(transType);
+
+			if (transPtr == NULL)
+			{
+				cout << "Transaction type not vaild" << endl;
+				//clean line
+			}
+			else
+			{
+				int customerID = 0;
+				infile >> customerID;
+
+				if (validCustomer(customerID))
+				{
+					if (transPtr->getTransactionType != "History")
+					{
+						char media = ' ';
+						
+						//check if media is valid 
+						//create a movie base on input
+
+					}
+					else
+					{
+						//print customer history
+					}
+				}
+				else
+				{
+
+				}
+			}
+			
+		}
+
+	}
 }

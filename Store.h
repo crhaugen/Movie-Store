@@ -32,6 +32,7 @@
 #include "Comedy.h"
 #include "Classics.h"
 #include "BinTree.h"
+#include "Transaction.h"
 #include <iostream>
 
 using namespace std;
@@ -43,10 +44,14 @@ private:
 	BinTree comedyTree;
 	BinTree classicsTree;
 
+	bool validCustomer(int id);
+
 public:
 
 	Store();
 
 	void buildMovies(istream& infile);
+	void readTransaction(istream& infile);
+
 
 };
