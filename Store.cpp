@@ -159,7 +159,8 @@ void Store::readTransaction(istream& infile)
 			break;
 		}
 
-		if (transType == 'S')
+		//the file with data we got had I 
+		if (transType == 'I')
 		{
 			//do print of store
 			this->displayItems();

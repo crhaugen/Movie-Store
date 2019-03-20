@@ -1,7 +1,3 @@
-﻿  HashCustomer.cpp
-c:\users\chyanne\source\repos\assignment4\assignment4\hashcustomer.cpp(25): warning C4018: '<': signed/unsigned mismatch
-c:\users\chyanne\source\repos\assignment4\assignment4\hashcustomer.cpp(47): warning C4018: '<': signed/unsigned mismatch
-c:\users\chyanne\source\repos\assignment4\assignment4\hashcustomer.cpp(65): warning C4018: '<': signed/unsigned mismatch
-c:\users\chyanne\source\repos\assignment4\assignment4\hashcustomer.cpp(79): warning C4018: '<': signed/unsigned mismatch
-c:\users\chyanne\source\repos\assignment4\assignment4\hashcustomer.cpp(83): warning C4018: '<': signed/unsigned mismatch
+﻿  Classics.cpp
+c:\users\chyanne\source\repos\assignment4\assignment4\classics.cpp(163): warning C4715: 'Classics::operator=': not all control paths return a value
   Assignment4.vcxproj -> C:\Users\Chyanne\source\repos\Assignment4\Debug\Assignment4.exe

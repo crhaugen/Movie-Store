@@ -131,7 +131,8 @@ bool Classics::equalsBySortType(const Movie &otherData) const
 // Postconditions: - prints out information from classics object
 void Classics::display() const
 {
-	cout << getTitle() << " " << getDirector() << " " << getYear();
+	cout << getDirector() << " " << getTitle() << " " << getFirstName()
+		<< " " << getLastName() << " " << getMonth() << " " << getYear();
 }
 
 //------------------------ operator= ------------------------------------------

@@ -249,7 +249,7 @@ void BinTree::inorderHelper(ostream& output, Node *current) const
 	{
 		inorderHelper(output, current->left);
 		current->data->display();
-		cout << " ";
+		cout << endl;
 		inorderHelper(output, current->right);
 	}
 }
